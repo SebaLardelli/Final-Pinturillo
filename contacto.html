@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Pinturillo Solo</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="encabezado">
+        <h1 class="titulo-principal">Pinturillo Solo</h1>
+        <nav class="navegacion-principal">
+            <a class="enlace-nav" href="index.html">Juego</a>
+            <a class="enlace-nav enlace-activo" href="contacto.html">Contacto</a>
+            <a class="enlace-nav" href="https://github.com/" target="_blank" rel="noopener noreferrer">Repositorio</a>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section class="tarjeta">
+            <h2>Contacto</h2>
+            <p>Completá el formulario y se abrirá tu cliente de correo predeterminado.</p>
+
+            <form id="formContacto" class="form-contacto" novalidate>
+                <label for="contactoNombre">Nombre</label>
+                <input id="contactoNombre" type="text" maxlength="40" autocomplete="off" placeholder="Nombre y apellido">
+                <p id="errorContactoNombre" class="mensaje-error"></p>
+
+                <label for="contactoMail">Mail</label>
+                <input id="contactoMail" type="email" maxlength="80" autocomplete="off" placeholder="correo@dominio.com">
+                <p id="errorContactoMail" class="mensaje-error"></p>
+
+                <label for="contactoMensaje">Mensaje</label>
+                <textarea id="contactoMensaje" rows="6" maxlength="500" placeholder="Escribí tu mensaje"></textarea>
+                <p id="errorContactoMensaje" class="mensaje-error"></p>
+
+                <button class="boton-primario" type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="js/contacto.js"></script>
+</body>
+</html>

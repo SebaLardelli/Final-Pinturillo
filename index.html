@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinturillo Solo</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header class="encabezado">
+        <h1 class="titulo-principal">Pinturillo Solo</h1>
+        <nav class="navegacion-principal">
+            <a class="enlace-nav" href="index.html">Juego</a>
+            <a class="enlace-nav" href="contacto.html">Contacto</a>
+            <a class="enlace-nav" href="https://github.com/" target="_blank" rel="noopener noreferrer">Repositorio</a>
+        </nav>
+    </header>
+
+    <main class="contenido-principal">
+        <section id="pantallaInicio" class="tarjeta pantalla-activa">
+            <h2>Menú principal</h2>
+            <p>
+                Dibujá la palabra secreta y adivinala antes de que se termine el tiempo.
+                Tenés 3 vidas para completar la ronda.
+            </p>
+            <button id="botonAbrirModal" class="boton-primario" type="button">Iniciar partida</button>
+        </section>
+
+        <section id="pantallaJuego" class="tarjeta pantalla-oculta">
+            <div class="panel-estado">
+                <div class="estado-item">Jugador: <span id="estadoJugador">-</span></div>
+                <div class="estado-item">Tiempo: <span id="estadoTiempo">0</span>s</div>
+                <div class="estado-item">Vidas: <span id="estadoVidas">0</span></div>
+                <div class="estado-item">Puntaje: <span id="estadoPuntaje">0</span></div>
+            </div>
+
+            <p class="pista-palabra">Palabra secreta: <span id="estadoPista">-</span></p>
+
+            <div class="zona-juego">
+                <canvas id="lienzoJuego" width="640" height="380"></canvas>
+
+                <div class="controles-dibujo">
+                    <label for="selectorColor">Color</label>
+                    <input id="selectorColor" type="color" value="#111111">
+
+                    <label for="selectorGrosor">Grosor</label>
+                    <input id="selectorGrosor" type="range" min="2" max="30" step="1" value="4">
+
+                    <button id="botonBorrar" class="boton-secundario" type="button">Borrar lienzo</button>
+                </div>
+            </div>
+
+            <form id="formAdivinar" class="form-adivinar" novalidate>
+                <label for="inputAdivinar">Tu intento</label>
+                <input id="inputAdivinar" type="text" autocomplete="off" maxlength="30" placeholder="Escribí una palabra">
+                <button class="boton-primario" type="submit">Adivinar</button>
+            </form>
+
+            <div class="acciones-juego">
+                <button id="botonReiniciar" class="boton-secundario" type="button">Reiniciar partida</button>
+                <button id="botonVolverMenu" class="boton-secundario" type="button">Volver al menú</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="modalNombre" class="modal modal-oculto" role="dialog" aria-modal="true" aria-labelledby="tituloModalNombre">
+        <div class="modal-contenido">
+            <h3 id="tituloModalNombre">Ingresá tu nombre</h3>
+            <form id="formNombre" novalidate>
+                <label for="inputNombre">Nombre del jugador</label>
+                <input id="inputNombre" type="text" maxlength="20" autocomplete="off" placeholder="Mínimo 3 letras">
+                <p id="errorNombre" class="mensaje-error"></p>
+                <button class="boton-primario" type="submit">Comenzar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="modalMensaje" class="modal modal-oculto" role="dialog" aria-modal="true" aria-labelledby="tituloModalMensaje">
+        <div class="modal-contenido">
+            <h3 id="tituloModalMensaje">Resultado</h3>
+            <p id="textoModalMensaje"></p>
+            <button id="botonCerrarMensaje" class="boton-primario" type="button">Cerrar</button>
+        </div>
+    </div>
+
+    <script src="js/state.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
